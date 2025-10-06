@@ -1,7 +1,7 @@
 // C++ code
 //
 #define TRIG 9
-#define ECHO 10;
+#define ECHO 10
 long duration;
 float distance;
 float tankDepth=15.0;
@@ -28,7 +28,7 @@ void loop()
   if(waterLevel>tankDepth)waterLevel=tankDepth;
   
   Serial.print("Water level:");
-  Serial.pritn(waterLevel);
+  Serial.print(waterLevel);
   Serial.print(" cm / Depth: ");
   Serial.print(tankDepth);
   Serial.println(" cm");
