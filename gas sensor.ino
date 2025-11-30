@@ -1,25 +1,23 @@
-int sensorPin = A0;
-int ledPin = 13;
-int sensorValue = 0;
-int threshold = 500;
-
+int smoke_sensor=0;
 void setup() {
+  pinMode(A0,INPUT);
   Serial.begin(9600);
-  pinMode(ledPin, OUTPUT);
-}
+  pinMode(5, OUTPUT);
+  pinMode(7,OUTPUT);}
 
 void loop() {
-  sensorValue = analogRead(sensorPin);
-  Serial.print("Soil Moisture Value: ");
-  Serial.println(sensorValue);
+  smoke_sensor = analogRead(A0);
+  Serial.println(smoke_sensor);
 
-  if (sensorValue > threshold) {
-    Serial.println("Status: DRY");
-    digitalWrite(ledPin, HIGH);
+  if (smoke_sensor > =600) {
+    digitalWrite(5, HIGH);
   } else {
-    Serial.println("Status: WET");
-    digitalWrite(ledPin, LOW);
+    digitalWrite(5, LOW);
   }
-
+  if (smoke_sensor > =700) {
+    digitalWrite(7, HIGH);
+  } else {
+    digitalWrite(7, LOW);
+  }
   delay(1000);
 }
